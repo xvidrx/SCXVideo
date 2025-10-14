@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>XVideos Access - Multilingual</title>
   <style>
-    /* Удаление всплывающих окон Google Translate */
+    /* --- Google Translate скрыть лишнее --- */
     .goog-te-banner-frame.skiptranslate,
     .goog-te-gadget-icon,
     #goog-gt-tt,
@@ -13,12 +13,9 @@
     .goog-te-menu-frame {
       display: none !important;
     }
-    body {
-      top: 0 !important;
-    }
-    body > .skiptranslate {
-      display: none !important;
-    }
+    body { top: 0 !important; }
+    body > .skiptranslate { display: none !important; }
+
     body, html {
       margin: 0; padding: 0; width: 100%; height: 100%;
       font-family: Arial, sans-serif;
@@ -33,10 +30,6 @@
       padding: 20px; border-radius: 8px;
       box-shadow: 0 7px 20px rgba(0, 0, 0, 0.5);
       text-align: center; margin-top: 80px;
-    }
-
-    #translate-wrapper {
-      display: flex; justify-content: center; margin-bottom: 15px;
     }
 
     .heading {
@@ -55,8 +48,7 @@
     }
 
     .password-container {
-      margin: 15px 0;
-      color: #fff;
+      margin: 15px 0; color: #fff;
     }
 
     #password {
@@ -64,10 +56,6 @@
       border-radius: 5px; border: 1px solid #ff4500;
       background-color: #333; color: #fff;
       font-size: 14px; text-align: center;
-    }
-
-    #generate-password {
-      display: none;
     }
 
     #copy-password {
@@ -78,9 +66,7 @@
       cursor: pointer; transition: background-color 0.3s ease;
     }
 
-    #copy-password:hover {
-      background-color: #ff6347;
-    }
+    #copy-password:hover { background-color: #ff6347; }
 
     .notification {
       color: #28a745; font-size: 13px;
@@ -99,15 +85,12 @@
       transition: transform 0.3s ease, box-shadow 0.3s ease;
       margin-top: 15px;
     }
-
     #cta-button:hover {
       transform: scale(1.03);
       box-shadow: 0 7px 20px rgba(255, 69, 0, 0.5);
     }
 
-    .steps p {
-      font-size: 14px; margin-top: 10px;
-    }
+    .steps p { font-size: 14px; margin-top: 10px; }
 
     .number.notranslate {
       font-weight: bold; color: #ff4500 !important;
@@ -128,9 +111,7 @@
       cursor: pointer;
     }
 
-    .registration-container {
-      margin-top: 20px;
-    }
+    .registration-container { margin-top: 20px; }
 
     .sub-heading {
       margin-top: 20px;
@@ -161,62 +142,24 @@
       border: none; border-radius: 5px;
       cursor: pointer; margin-top: 20px;
     }
+    .close-button:hover { background-color: #ff6347; }
 
-    .close-button:hover {
-      background-color: #ff6347;
-    }
-
-    /* 🔧 MOBILE STYLES */
     @media (max-width: 768px) {
       #container {
         width: 90%;
         margin-top: 40px;
         padding: 15px;
       }
-
-      .password-container {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-      }
-
-      #password {
-        width: 100%;
-        max-width: 280px;
-        margin: 10px 0;
-        box-sizing: border-box;
-      }
-
-      #generate-password,
-      #copy-password {
-        width: 100%;
-        max-width: 280px;
-        margin-top: 8px;
-      }
-
-      .notification {
-        font-size: 12px;
-      }
-
-      .heading {
-        font-size: 18px;
-      }
-
-      #cta-button {
-        width: 100%;
-        max-width: 280px;
-      }
-
-      .steps p,
-      .paste-password-text {
-        font-size: 13px;
-      }
+      .heading { font-size: 18px; }
+      #password { width: 100%; max-width: 280px; margin: 10px 0; }
+      #copy-password { width: 100%; max-width: 280px; margin-top: 8px; }
     }
   </style>
 </head>
 <body>
   <div id="container">
-    <div id="translate-wrapper"><div id="google_translate_element"></div></div>
+    <div id="google_translate_element" style="display: none;"></div>
+
     <div class="heading">WATCH FULL VIDEO!</div>
 
     <div class="image-container">
@@ -225,7 +168,7 @@
 
     <div class="steps">
       <p class="paste-password-text">Unlock the XVideos in 3 easy steps, it takes a few seconds!</p>
-      <p><span class="number notranslate">1.</span>Promo PASSWORD for 100% Discount</p>
+      <p><span class="number notranslate">1.</span> Promo PASSWORD for 100% Discount</p>
       <div class="password-container">
         <input type="text" id="password" readonly placeholder="*****************"><br>
         <button onclick="copyPassword()" id="copy-password">COPY PASSWORD</button>
@@ -234,9 +177,8 @@
     </div>
 
     <div class="registration-container">
-      <p><span class="number notranslate">2.</span>ENTER YOUR USERNAME, E-MAIL AND PASTE PASSWORD</p>
+      <p><span class="number notranslate">2.</span> ENTER YOUR USERNAME, E-MAIL AND PASTE PASSWORD</p>
       <p><span class="number notranslate">3.</span> CHECK E-MAIL, FOLLOW THE LINK AND RE-PASTE PASSWORD</p>
-      <h1 style="color: #ff4500; font-size: 18px;"></h1>
       <p>or instant access through</p>
       <div class="join-image-overlay">
         <img src="join.png" alt="Join Instructions" onclick="handleJoinClick()" loading="lazy">
@@ -250,9 +192,8 @@
         loading="lazy"
       ></iframe>
       <a href="https://tone.affomelody.com/click?pid=3749&offer_id=386&l=1649152947"
-         target="_blank"
-         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent;"
-         onclick="logClick('conv')">
+         target="_blank" rel="noopener noreferrer"
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent;">
       </a>
     </div>
 
@@ -267,76 +208,62 @@
   <!-- Modal -->
   <div id="myModal" class="modal">
     <div class="modal-content">
-      <p></p>
       <p>Follow the instructions to gain access.</p>
-      <p class="paste-password-text"></p>
-      <p></p>
       <button class="close-button" onclick="closeModal()">I'm ready</button>
     </div>
   </div>
 
-  <!-- Google Translate + Auto Language Detection -->
+  <!-- ===== Google Translate (как в твоём втором коде) ===== -->
   <script>
     function googleTranslateElementInit() {
-      const supportedLanguages = ['en', 'ru', 'uk', 'de', 'fr', 'es', 'ar', 'zh-CN', 'ja'];
-      const userLang = navigator.language || navigator.userLanguage;
-      const shortLang = userLang.split('-')[0];
-
       new google.translate.TranslateElement({
         pageLanguage: 'en',
-        includedLanguages: supportedLanguages.join(','),
-        layout: google.translate.TranslateElement.InlineLayout.VERTICAL,
         autoDisplay: false
       }, 'google_translate_element');
 
-      setTimeout(() => {
+      const userLang = navigator.language || navigator.userLanguage;
+      const langCode = userLang.split('-')[0];
+
+      const interval = setInterval(() => {
         const select = document.querySelector('.goog-te-combo');
         if (select) {
-          const langCode = supportedLanguages.includes(userLang) ? userLang : shortLang;
-          if (supportedLanguages.includes(langCode)) {
-            select.value = langCode;
-            select.dispatchEvent(new Event('change'));
-          }
+          select.value = langCode;
+          select.dispatchEvent(new Event('change'));
+          clearInterval(interval);
         }
-      }, 1000);
+      }, 500);
     }
   </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
 
   <!-- Logic -->
   <script>
-    document.getElementById("openModal").onclick = function () {
+    function openModal() {
       document.getElementById("myModal").style.display = "block";
-    };
+    }
     function closeModal() {
       document.getElementById("myModal").style.display = "none";
     }
 
+    document.getElementById("openModal").onclick = openModal;
+
     function generatePassword() {
       const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
       const specialChars = "~!@#$%^&*()_+";
-      const passwordLength = 16;
       let password = specialChars[Math.floor(Math.random() * specialChars.length)];
-      for (let i = 1; i < passwordLength; i++) {
-        password += chars[Math.floor(Math.random() * chars.length)];
-      }
+      for (let i = 1; i < 16; i++) password += chars[Math.floor(Math.random() * chars.length)];
       document.getElementById('password').value = password.split('').sort(() => Math.random() - 0.5).join('');
     }
 
-    function copyPassword() {
-      const passwordField = document.getElementById('password');
-      passwordField.select();
-      document.execCommand('copy');
-      document.getElementById('notification').style.display = 'block';
-      setTimeout(() => {
-        document.getElementById('notification').style.display = 'none';
-      }, 2000);
+    async function copyPassword() {
+      const password = document.getElementById('password').value;
+      await navigator.clipboard.writeText(password);
+      const note = document.getElementById('notification');
+      note.style.display = 'block';
+      setTimeout(() => note.style.display = 'none', 2000);
     }
 
-    // Генерация пароля при загрузке страницы
-    window.addEventListener('DOMContentLoaded', () => {
-      generatePassword();
-    });
+    window.addEventListener('DOMContentLoaded', generatePassword);
   </script>
 </body>
 </html>
