@@ -4,12 +4,8 @@
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>XVideos Access - Multilingual</title>
-  <link rel="icon" href="favicon.png" type="image/png">
-  <meta name="description" content="Unlock 490000+ exclusive HD videos by category. Get instant XVideos access in 3 steps!">
-  <meta name="theme-color" content="#ff4500">
-
   <style>
-    /* --- Скрываем Google Translate --- */
+    /* --- Google Translate скрыть лишнее --- */
     .goog-te-banner-frame.skiptranslate,
     .goog-te-gadget-icon,
     #goog-gt-tt,
@@ -20,30 +16,32 @@
     body { top: 0 !important; }
     body > .skiptranslate { display: none !important; }
 
-    /* --- Основное оформление --- */
     body, html {
       margin: 0; padding: 0; width: 100%; height: 100%;
       font-family: Arial, sans-serif;
       background: url('fon.png') no-repeat center center fixed;
-      background-size: cover; color: #fff;
+      background-size: cover; color: #fff; overflow-x: hidden;
       display: flex; justify-content: center; align-items: flex-start;
-      overflow-x: hidden;
     }
+
     #container {
       width: 60%; max-width: 1200px;
-      background: rgba(0, 0, 0, 0.55);
+      background: rgba(0, 0, 0, 0.5);
       padding: 20px; border-radius: 8px;
-      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.6);
+      box-shadow: 0 7px 20px rgba(0, 0, 0, 0.5);
       text-align: center; margin-top: 80px;
     }
+
     .heading {
       font-size: 22px; font-weight: bold;
       color: #ff4500; text-shadow: 1px 1px 7px #000;
       margin-bottom: 15px;
     }
+
     .image-container {
       margin: 15px 0; display: flex; justify-content: center; align-items: center;
     }
+
     .image-container img {
       height: auto; max-width: 100%; object-fit: contain;
       border-radius: 5px; cursor: pointer;
@@ -52,24 +50,24 @@
     .password-container {
       margin: 15px 0; color: #fff;
     }
+
     #password {
       padding: 10px; width: 200px;
       border-radius: 5px; border: 1px solid #ff4500;
       background-color: #333; color: #fff;
       font-size: 14px; text-align: center;
-      transition: box-shadow 0.3s ease;
     }
-    #generate-password, #copy-password {
+
+    #copy-password {
       padding: 10px 25px; margin-top: 12px;
       font-size: 13px; color: #fff;
       background-color: #ff4500;
       border: none; border-radius: 5px;
-      cursor: pointer; transition: all 0.3s ease;
+      cursor: pointer; transition: background-color 0.3s ease;
     }
-    #generate-password:hover, #copy-password:hover {
-      background-color: #ff6347;
-      transform: scale(1.03);
-    }
+
+    #copy-password:hover { background-color: #ff6347; }
+
     .notification {
       color: #28a745; font-size: 13px;
       margin-top: 12px; display: none;
@@ -79,7 +77,7 @@
     #cta-button {
       padding: 12px 30px; font-size: 14px; font-weight: bold;
       color: #fff;
-      background: linear-gradient(45deg, #ff4500, #ff6a00);
+      background: linear-gradient(45deg, #ff4500, #ff6347);
       text-transform: uppercase;
       border-radius: 5px; text-decoration: none;
       display: inline-block;
@@ -88,13 +86,33 @@
       margin-top: 15px;
     }
     #cta-button:hover {
-      transform: scale(1.05);
+      transform: scale(1.03);
       box-shadow: 0 7px 20px rgba(255, 69, 0, 0.5);
     }
 
     .steps p { font-size: 14px; margin-top: 10px; }
-    .number.notranslate { font-weight: bold; color: #ff4500 !important; }
-    .paste-password-text { font-size: 14px; color: #ff4500; margin: 0; font-weight: bold; }
+
+    .number.notranslate {
+      font-weight: bold; color: #ff4500 !important;
+    }
+
+    .paste-password-text {
+      font-size: 14px; color: #ff4500;
+      margin: 0; text-align: center; font-weight: bold;
+    }
+
+    .join-image-overlay {
+      margin: 15px 0; display: flex; justify-content: center; align-items: center;
+    }
+
+    .join-image-overlay img {
+      max-width: 100%; height: auto;
+      object-fit: contain; border-radius: 5px;
+      cursor: pointer;
+    }
+
+    .registration-container { margin-top: 20px; }
+
     .sub-heading {
       margin-top: 20px;
       font-size: 16px;
@@ -102,19 +120,12 @@
       color: #ff4500;
     }
 
-    .registration-container p:last-child {
-      animation: pulse 2s infinite;
-    }
-    @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.6; } }
-
-    /* --- Модальное окно --- */
     .modal {
       display: none; position: fixed; z-index: 1000;
       left: 0; top: 0; width: 100%; height: 100%;
       background-color: rgba(0, 0, 0, 0.8);
-      animation: fadeIn 0.3s ease;
     }
-    @keyframes fadeIn { from { opacity: 0; } to { opacity: 1; } }
+
     .modal-content {
       background-color: #222;
       margin: 15% auto;
@@ -124,16 +135,15 @@
       border-radius: 10px;
       text-align: center; color: #fff;
     }
+
     .close-button {
       background-color: #ff4500;
       color: #fff; padding: 10px 20px;
       border: none; border-radius: 5px;
       cursor: pointer; margin-top: 20px;
-      transition: all 0.3s ease;
     }
     .close-button:hover { background-color: #ff6347; }
 
-    /* --- Мобильная адаптация --- */
     @media (max-width: 768px) {
       #container {
         width: 90%;
@@ -141,121 +151,119 @@
         padding: 15px;
       }
       .heading { font-size: 18px; }
-      #cta-button { width: 100%; font-size: 13px; }
-      .image-container img { max-width: 95%; }
+      #password { width: 100%; max-width: 280px; margin: 10px 0; }
+      #copy-password { width: 100%; max-width: 280px; margin-top: 8px; }
     }
   </style>
 </head>
-
 <body>
   <div id="container">
     <div id="google_translate_element" style="display: none;"></div>
 
-    <div class="heading">UNLOCK TO WATCH THE FULL VIDEO</div>
+    <div class="heading">WATCH FULL VIDEO!</div>
 
     <div class="image-container">
-      <img src="ai_bot.png" alt="AI Bot" id="openModal">
+      <img src="ai_bot.png" alt="AI Bot" id="openModal" loading="lazy">
     </div>
 
     <div class="steps">
-      <p class="paste-password-text">Unlock the XVideos section in 3 easy steps, it takes a few seconds!</p>
-      <p><span class="number notranslate">1.</span> GET PASSWORD AND COPY</p>
+      <p class="paste-password-text">Unlock the XVideos in 3 easy steps, it takes a few seconds!</p>
+      <p><span class="number notranslate">1.</span> Promo PASSWORD for 100% Discount</p>
       <div class="password-container">
         <input type="text" id="password" readonly placeholder="*****************"><br>
-        <button onclick="generatePassword()" id="generate-password">GET PASSWORD</button>
-        <button onclick="copyPassword()" id="copy-password">COPY</button>
+        <button onclick="copyPassword()" id="copy-password">COPY PASSWORD</button>
         <div class="notification" id="notification">Password copied!</div>
       </div>
     </div>
 
     <div class="registration-container">
-      <h1 style="color: #ff4500; font-size: 24px;">Join Now for Free!</h1>
-      <p><span class="number notranslate">2.</span> CLICK UNLOCK 🔐, ENTER YOUR USERNAME AND E-MAIL</p>
-      <button id="cta-button">UNLOCK</button>
-      <p><span class="number notranslate">3.</span> CHECK E-MAIL, FOLLOW THE LINK AND INSERT PASSWORD - ACCESS IS OPEN 🔓</p>
-      <p></p>
+      <p><span class="number notranslate">2.</span> ENTER YOUR USERNAME, E-MAIL AND PASTE PASSWORD</p>
+      <p><span class="number notranslate">3.</span> CHECK E-MAIL, FOLLOW THE LINK AND RE-PASTE PASSWORD</p>
+      <p>or instant access through</p>
+      <div class="join-image-overlay">
+        <img src="join.png" alt="Join Instructions" onclick="handleJoinClick()" loading="lazy">
+      </div>
     </div>
 
-    <div class="sub-heading">
-      Don’t forget to check your email!<br>
-	  <p>“NOW NOT JUST WEBCAMS”</p>
-      490000+ EXCLUSIVE HD VIDEOS BY CATEGORY
+    <div style="position: relative; height: 100vh; border-radius: 8px; overflow: hidden; margin: 15px 0;">
+      <iframe
+        src="https://lps.cherrycams.tv/camsite?ref_tid=9cabd783c24444e78579750bd72e7ce2&utm_source=823&utm_medium=affiliate&utm_campaign=117&utm_term=-"
+        style="width: 100%; height: 100%; border: none; pointer-events: none; filter: brightness(0.95);"
+        loading="lazy"
+      ></iframe>
+      <a href="https://tone.affomelody.com/click?pid=3749&offer_id=386&l=1649152947"
+         target="_blank" rel="noopener noreferrer"
+         style="position: absolute; top: 0; left: 0; width: 100%; height: 100%; z-index: 10; background: transparent;">
+      </a>
     </div>
-	    <div class="image-container">
-      <img src="strip.png" alt="Strip Image" loading="lazy">
-    </div>
+
+    <h1 style="color: #ff4500; font-size: 24px;">Join Now for Free!</h1>
+    <p>🔥DON'T MISS THE OFFER🔥</p>
+    <div class="sub-heading">490000+ EXCLUSIVE HD VIDEOS BY CATEGORY</div>
     <div class="image-container">
-      <img src="ai_botfull.png" alt="AI Bot Full">
+      <img src="ai_botfull.png" alt="AI Bot Full" loading="lazy">
     </div>
   </div>
 
   <!-- Modal -->
   <div id="myModal" class="modal">
     <div class="modal-content">
-      <p></p>
-      <p>Follow the instructions carefully to get your access.</p>
-      <p class="paste-password-text">CONFIRM 18+!</p>
-      <button class="close-button" onclick="closeModal()">I'm 18 or older</button>
+      <p>Follow the instructions to gain access.</p>
+      <button class="close-button" onclick="closeModal()">I'm ready</button>
     </div>
   </div>
 
-  <!-- ===== Logic ===== -->
-  <script>
-    document.getElementById("openModal").onclick = function () {
-      document.getElementById("myModal").style.display = "block";
-    };
-    function closeModal() { document.getElementById("myModal").style.display = "none"; }
-
-    function generatePassword() {
-      const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
-      const specialChars = "~!@#$%^&*()_+";
-      const passwordLength = 16;
-      let password = specialChars[Math.floor(Math.random() * specialChars.length)];
-      for (let i = 1; i < passwordLength; i++) {
-        password += chars[Math.floor(Math.random() * chars.length)];
-      }
-      password = password.split('').sort(() => Math.random() - 0.5).join('');
-      const field = document.getElementById('password');
-      field.value = password;
-    }
-
-    function copyPassword() {
-      const passwordField = document.getElementById('password');
-      passwordField.select();
-      document.execCommand('copy');
-      const note = document.getElementById('notification');
-      note.style.display = 'block';
-      setTimeout(() => { note.style.display = 'none'; }, 2000);
-    }
-
-    // CTA с поддержкой sub1
-    document.getElementById('cta-button').addEventListener('click', function (e) {
-      e.preventDefault();
-      const url = new URL('https://tone.affomelody.com/click?pid=3749&offer_id=64&path=signup/user');
-      const params = new URLSearchParams(window.location.search);
-      if (params.get('sub1')) url.searchParams.set('sub1', params.get('sub1'));
-      window.open(url.toString(), '_blank');
-    });
-  </script>
-
-  <!-- ===== Google Translate ===== -->
+  <!-- ===== Google Translate (как в твоём втором коде) ===== -->
   <script>
     function googleTranslateElementInit() {
-      new google.translate.TranslateElement({ pageLanguage: 'en', autoDisplay: false }, 'google_translate_element');
+      new google.translate.TranslateElement({
+        pageLanguage: 'en',
+        autoDisplay: false
+      }, 'google_translate_element');
+
+      const userLang = navigator.language || navigator.userLanguage;
+      const langCode = userLang.split('-')[0];
+
       const interval = setInterval(() => {
         const select = document.querySelector('.goog-te-combo');
-        if (select && select.options.length > 1) {
-          const langCode = (navigator.language || 'en').split('-')[0];
+        if (select) {
           select.value = langCode;
           select.dispatchEvent(new Event('change'));
           clearInterval(interval);
         }
-      }, 800);
+      }, 500);
     }
   </script>
   <script src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+
+  <!-- Logic -->
+  <script>
+    function openModal() {
+      document.getElementById("myModal").style.display = "block";
+    }
+    function closeModal() {
+      document.getElementById("myModal").style.display = "none";
+    }
+
+    document.getElementById("openModal").onclick = openModal;
+
+    function generatePassword() {
+      const chars = "abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ0123456789";
+      const specialChars = "~!@#$%^&*()_+";
+      let password = specialChars[Math.floor(Math.random() * specialChars.length)];
+      for (let i = 1; i < 16; i++) password += chars[Math.floor(Math.random() * chars.length)];
+      document.getElementById('password').value = password.split('').sort(() => Math.random() - 0.5).join('');
+    }
+
+    async function copyPassword() {
+      const password = document.getElementById('password').value;
+      await navigator.clipboard.writeText(password);
+      const note = document.getElementById('notification');
+      note.style.display = 'block';
+      setTimeout(() => note.style.display = 'none', 2000);
+    }
+
+    window.addEventListener('DOMContentLoaded', generatePassword);
+  </script>
 </body>
 </html>
-
-
-
